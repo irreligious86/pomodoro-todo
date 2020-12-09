@@ -1,0 +1,12 @@
+{
+  "name": "user",
+  "version": "1.0.0",
+  "description": "qwerty",
+  "main": "index.js",
+  "repository": "https://github.com/irreligious86/pseudo-pomodoro.git",
+  "author": "Aleksander Voronov <irreligious86@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}

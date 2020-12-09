@@ -1,0 +1,216 @@
+body {
+    background: rgba(170, 170, 170, 0.384);
+  }
+  
+  .wrapper {
+    margin: 0 auto;
+    width: 1024px;
+    min-height: 1024px;
+    background: rgba(170, 170, 170, 0.521);
+    box-shadow: 8px 8px 5px rgba(8, 8, 8, 0.65);
+    display: grid;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-areas:
+      "header header header"
+      "navbar content content"
+      "footer footer footer";
+  }
+  
+  header {
+    width: 1024px;
+    height: 50px;
+    background: rgba(147, 139, 198, 0.47);
+    grid-area: header;
+  }
+  
+  .navbar {
+    width: 245px;
+    height: 904px;
+    background: rgba(170, 170, 170, 0.521);
+    grid-area: navbar;
+  }
+  
+  .content {
+    width: 774px;
+    min-height: 904px;
+    background: rgba(208, 233, 220, 0.36);
+    grid-area: content;
+  }
+  
+  footer {
+    width: 1024px;
+    height: 70px;
+    background: rgba(204, 204, 204, 0.418);
+    grid-area: footer;
+  }
+
+  /* -------------------------------------- */
+
+  .tab {
+    /* margin: 5px;
+    padding: 10px; */
+    /*border: 1px solid red;*/
+    width: 774px;
+    min-height: 904px;
+    background: rgba(241, 241, 236, 0.61);
+    display: grid;
+    grid-template-rows: 50px auto 50px;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-areas:
+      "tab-header tab-header"
+      "tab-content tab-additional"
+      "tab-footer tab-footer";
+  }
+  
+  .tab-header {
+    grid-area: tab-header;
+    margin: auto;
+    padding: 5px;
+    /*border: 1px solid red;*/
+    height: 30px;
+  }
+  
+  .tab-content {
+    grid-area: tab-content;
+    margin: 0;
+    padding: 5px;
+    /*border: 1px solid red;*/
+  }
+  
+  .tab-additional {
+    grid-area: tab-additional;
+    margin: 0;
+    padding: 5px;
+    /*border: 1px solid red;*/
+  }
+  
+  .tab-footer {
+    grid-area: tab-footer;
+    margin: 0;
+    padding: 5px;
+    /*border: 1px solid red;*/
+  }
+
+  .tab-header > h1 {
+    margin: 0 auto;
+  }
+
+  /* ------------------------------------------------ */
+
+ul.header-list {
+  padding-inline-start: 5px;
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+  ul.header-list > li {
+    flex-direction: row;
+  }
+  ul.header-list > li > button {
+    background: aqua;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.445);
+  }
+  ul.navbar-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-inline-start: 0;
+  }
+  ul.navbar-list > li {
+    flex-direction: column;
+    margin: 5px;
+    padding: 8px 25px;
+    width: 250px;
+  }
+
+
+@media screen and (max-width: 1037px) {
+  .wrapper, header, .navbar, .content, footer {
+    width: 778px;
+  }
+.wrapper {
+  grid-template-areas:
+      "header"
+      "navbar"
+      "content"
+      "footer";
+}
+  .navbar {
+    height: 30px;
+  }
+  ul.navbar-list {
+    justify-content: space-around;
+    margin: 3px;
+  }
+  ul.navbar-list > li {
+    flex-direction: column;
+    margin: 3px;
+    padding: 3px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 778px) {
+  .wrapper, header, .navbar, .content, .tab, footer {
+    width: 540px;
+  }
+  .tab {
+    grid-template-rows: 50px auto auto 50px;
+    grid-template-columns: 1fr;
+    grid-column-gap: 3px;
+    grid-row-gap: 3px;
+    grid-template-areas:
+      "tab-header"
+      "tab-content"
+      "tab-additional"
+      "tab-footer";
+  }
+  .tab-content {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .wrapper, header, .navbar, .content, .tab, footer {
+    width: 480px;
+  }
+  header {
+    height: 36px;
+  }
+  .tab {
+    grid-template-rows: 30px auto auto 50px;
+    grid-template-columns: 1fr;
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+    grid-template-areas:
+      "tab-header"
+      "tab-content"
+      "tab-additional"
+      "tab-footer";
+  }
+  .tab-header {
+    margin: 1px;
+    padding: 1px;   
+    font-size: small;
+  }
+  ul.header-list {
+    display: flow-root;
+    height: 27px;
+    width: 480px;
+    margin: 3px;
+  }
+  ul.header-list > li {
+    margin: 3px;
+    padding: 3px;
+    width: 100%;
+  }
+  ul.header-list > li > button {
+    width: 70%;
+  }
+}

@@ -30,17 +30,12 @@ let renderCurrentTasks = tasklist => {
 renderCurrentTasks(mylist);
 renderCurrentTasks(reservelist);
 
-let newTaskSettinger = () => {
+let openTaskSetter = () => {
     blur.classList.remove('hidden');
     elem.append(setupWindow);
     areaForTask.append(elem);
 };
-let settingWindowDeleter = () => {
-    setupWindowForm.reset();
-    setupWindow.remove();
-    elem.remove();
-    blur.classList.add('hidden');
-};
+
 let newTaskCreator = () => {
     mylist.addTask();
     console.log(mylist);
@@ -62,14 +57,23 @@ let newTaskCreator = () => {
     blur.classList.add('hidden');
 };
 
-addTaskBtn.addEventListener('click', newTaskSettinger);
-redX.addEventListener('click', settingWindowDeleter);
-document.addEventListener('keydown', function (evt) {
-    if(evt.keyCode === 27 && !setupWindow.classList.contains('hidden')) {
-        setupWindowForm.reset();
-        setupWindow.remove();
-        elem.remove();
-        blur.classList.add('hidden');
-    }
-});
+let closeTaskSetter = () => {
+    setupWindowForm.reset();
+    setupWindow.remove();
+    elem.remove();
+    blur.classList.add('hidden');
+};
+
+let escapeTaskSetter = evt => {
+        if(evt.keyCode === 27 && !setupWindow.classList.contains('hidden')) {
+            setupWindowForm.reset();
+            setupWindow.remove();
+            elem.remove();
+            blur.classList.add('hidden');
+        }
+};
+
+addTaskBtn.addEventListener('click', openTaskSetter);
+redX.addEventListener('click', closeTaskSetter);
+document.addEventListener('keydown', escapeTaskSetter);
 okBtn.addEventListener('click', newTaskCreator );

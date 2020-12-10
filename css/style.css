@@ -8,24 +8,26 @@
 form {
   width: calc(100% - 5px);
   border-radius: 0 20px 20px 0;
-  color: rgba(65, 75, 134, 0.88);
+  color: rgb(0, 40, 16);
   }
 
 fieldset {
-    margin: 25px;
+    margin: 15px;
     padding: 5px;
 }
 
 label {
   position: relative;
   display: inline-flex;
-  gap: 20px;
+  gap: 10px;
   padding: 5px;
   margin: 5px;
   font-size: 18px;
 }
 
 input[type="tel"],
+input[type="date"],
+input[type="number"],
 input[type="password"],
 input[type="text"],
 input[type="email"] {
@@ -36,13 +38,15 @@ input[type="email"] {
   margin: 5;
   width: 220px;
   padding: 5px;
-  background-color: #68aad1b4;
+  background-color: rgba(144, 186, 212, 0.71);
   box-shadow: 0 0 3px rgba(29, 41, 25, 0.842);
   font-size: 16px;
   color: black;
 }
 
 input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
 input[type="password"]:focus,
 input[type="text"]:focus,
 input[type="email"]:focus {
@@ -51,6 +55,7 @@ input[type="email"]:focus {
 }
 
 button[type="submit"],
+input[type="button"],
 input[type="reset"] {
   border-width: 0;
   border-radius: 15px;
@@ -66,4 +71,5 @@ input[type="reset"] {
 a {
   padding: 10px;
 }
+
 

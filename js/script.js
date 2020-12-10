@@ -1,6 +1,5 @@
 "use strict";
 
-
 function msToTime(duration) {
   let milliseconds = parseInt((duration % 1000) / 100),
       seconds = parseInt((duration / 1000) % 60),
@@ -42,7 +41,7 @@ class Task {
     this.importance = null;
     this.createDate = (new Date()).toLocaleString();
     this.deadline = null;
-    this.description = "";
+    this.description = "kj;nk";
   }
 
   // getByTitle(title, arr) {
@@ -71,7 +70,6 @@ class Task {
   }
 }
 
-
 let mylist = new Tasklist("New");
 let reservelist = new Tasklist("Reserve");
 
@@ -89,11 +87,3 @@ task3.setDeadline('10.06.2021');
 task3.setImportance(8);
 task3.setCategory('category-125478');
 task3.setDescription('This is description for task3');
-
-console.log(mylist);
-console.log(task1);
-console.log(task2);
-console.log(task3);
-console.log(task44545);
-
-

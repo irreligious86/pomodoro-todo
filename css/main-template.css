@@ -6,7 +6,7 @@ body {
     margin: 0 auto;
     width: 1024px;
     min-height: 1024px;
-    background: rgba(170, 170, 170, 0.521);
+    background: rgba(198, 159, 159, 0.52);
     box-shadow: 8px 8px 5px rgba(8, 8, 8, 0.65);
     display: grid;
     grid-column-gap: 5px;
@@ -20,7 +20,7 @@ body {
   header {
     width: 1024px;
     height: 50px;
-    background: rgba(147, 139, 198, 0.47);
+    background: rgba(73, 60, 109, 0.47);
     grid-area: header;
   }
   
@@ -34,14 +34,14 @@ body {
   .content {
     width: 774px;
     min-height: 904px;
-    background: rgba(208, 233, 220, 0.36);
+    background: rgba(120, 157, 138, 0.36);
     grid-area: content;
   }
   
   footer {
     width: 1024px;
     height: 70px;
-    background: rgba(204, 204, 204, 0.418);
+    background: rgba(134, 109, 109, 0.42);
     grid-area: footer;
   }
 
@@ -53,7 +53,7 @@ body {
     /*border: 1px solid red;*/
     width: 774px;
     min-height: 904px;
-    background: rgba(241, 241, 236, 0.61);
+    background: rgb(174, 191, 147);
     display: grid;
     grid-template-rows: 50px auto 50px;
     grid-template-columns: 2fr 1fr;
@@ -111,7 +111,7 @@ ul.header-list {
     flex-direction: row;
   }
   ul.header-list > li > button {
-    background: aqua;
+    background: #92ea8e;
     border-radius: 5px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.445);
   }

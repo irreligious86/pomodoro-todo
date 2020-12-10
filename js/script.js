@@ -69,20 +69,20 @@ class Task {
   setCreateTool(title) {
   }
 }
-
-let mylist = new Tasklist("New");
+let mainNewTaskList = "New";
+let NEW = new Tasklist(mainNewTaskList);
 let reservelist = new Tasklist("Reserve");
 
-let task1 = mylist.addTask("my task N 0001");
+let task1 = NEW.addTask("my task N 0001");
 task1.setDescription( "This is description for my task called TASK1" );
 
 let task44545 = reservelist.addTask('reserveTaskInReserveList');
 task44545.setDescription('description for task44545')
 
-let task2 = mylist.addTask("my task N 0234");
-let task3 = mylist.addTask("my task N 99999");
+let task2 = NEW.addTask("my task N 0234");
+let task3 = NEW.addTask("my task N 99999");
 
-//mylist.removeTask("my task N 0234");
+//NEW.removeTask("my task N 0234");
 task3.setDeadline('10.06.2021');
 task3.setImportance(8);
 task3.setCategory('category-125478');

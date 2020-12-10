@@ -27,7 +27,7 @@ let renderCurrentTasks = tasklist => {
         areaForTask.appendChild(elem);
     }
 };
-renderCurrentTasks(mylist);
+renderCurrentTasks(NEW);
 renderCurrentTasks(reservelist);
 
 let openTaskSetter = () => {
@@ -37,21 +37,22 @@ let openTaskSetter = () => {
 };
 
 let newTaskCreator = () => {
-    mylist.addTask();
-    console.log(mylist);
-    let i = (mylist.list).length - 1;
+    NEW.addTask();
+    console.log(NEW);
+    let i = (NEW.list).length - 1;
+    let NEWi = (NEW.list)[i];
     console.log(i);
-    (mylist.list)[i].setTitle(titleSetField.value);
-    (mylist.list)[i].setImportance(importanceSetField.value);
-    (mylist.list)[i].setDeadline(deadlineSetField.value);
-    (mylist.list)[i].setCategory(categorySetField.value);
-    (mylist.list)[i].setDescription(descriptionSetField.value);
-    elem.querySelector('.task-field-title').textContent = (mylist.list)[i].title;
-    elem.querySelector('.task-field-create-date').textContent = (mylist.list)[i].createDate;
-    elem.querySelector('.task-field-importance').textContent = (mylist.list)[i].importance;
-    elem.querySelector('.task-field-deadline').textContent = (mylist.list)[i].deadline;
-    elem.querySelector('.task-field-category').textContent = (mylist.list)[i].category;
-    elem.querySelector('.description').textContent = (mylist.list)[i].description;
+    NEWi.setTitle(titleSetField.value);
+    NEWi.setImportance(importanceSetField.value);
+    NEWi.setDeadline(deadlineSetField.value);
+    NEWi.setCategory(categorySetField.value);
+    NEWi.setDescription(descriptionSetField.value);
+    elem.querySelector('.task-field-title').textContent = NEWi.title;
+    elem.querySelector('.task-field-create-date').textContent = NEWi.createDate;
+    elem.querySelector('.task-field-importance').textContent = NEWi.importance;
+    elem.querySelector('.task-field-deadline').textContent = NEWi.deadline;
+    elem.querySelector('.task-field-category').textContent = NEWi.category;
+    elem.querySelector('.description').textContent = NEWi.description;
     setupWindowForm.reset();
     setupWindow.remove();
     blur.classList.add('hidden');

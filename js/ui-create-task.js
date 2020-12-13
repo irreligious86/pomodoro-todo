@@ -27,6 +27,27 @@
 
     let hideTaskBtn = document.querySelector('.btn-hide-task');  // create button for hide task
 
+
+    const taskFieldObj = {
+        title: '.task-field-title',
+        createDate: '.task-field-create-date',
+        importance: '.task-field-importance',
+        deadline: '.task-field-deadline',
+        category: '.task-field-category',
+        description: '.task-field-description'
+};
+
+
+    const taskPropertiesObj = {
+
+    };
+
+    for (let key in taskFieldObj){
+        console.log(key);
+        console.log(taskFieldObj[key]);
+    };
+
+
     let renderCurrentTasks = array => {
         for (let i = 0; i < (array.list).length; i++) {
             let a = taskTemplate.cloneNode(true);
@@ -35,7 +56,7 @@
             a.querySelector('.task-field-importance').textContent = (array.list)[i].importance;
             a.querySelector('.task-field-deadline').textContent = (array.list)[i].deadline;
             a.querySelector('.task-field-category').textContent = (array.list)[i].category;
-            a.querySelector('.description').textContent = (array.list)[i].description;
+            a.querySelector('.task-field-description').textContent = (array.list)[i].description;
             taskViewContainer.appendChild(a);
         }
     };
@@ -61,7 +82,7 @@
         elem2.querySelector('.task-field-importance').textContent = (newTaskList.list)[i].importance;
         elem2.querySelector('.task-field-deadline').textContent = (newTaskList.list)[i].deadline;
         elem2.querySelector('.task-field-category').textContent = (newTaskList.list)[i].category;
-        elem2.querySelector('.description').textContent = (newTaskList.list)[i].description;
+        elem2.querySelector('.task-field-description').textContent = (newTaskList.list)[i].description;
         setupWindowForm.reset();
         setupWindow.remove();
         blur.classList.add('hidden');

@@ -36,17 +36,17 @@
     width: 150px;
   }
   
-  .description {
+  .task-field-description {
     grid-area: description;
     padding: 8px; 
   }
   
-  .description > h4 {
+  .task-field-description > h4 {
     margin: 1px;
     padding: 2px;
   }
   
-  .description > em {
+  .task-field-description > em {
     /* margin: 10px; */
   }
   

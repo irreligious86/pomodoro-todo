@@ -1,13 +1,5 @@
 "use strict";
 (function (){
-    let newTaskList = new Tasklist("New");
-    let reservelist = new Tasklist("Reserve");
-
-    let task1 = newTaskList.addTask("my task N 0001");
-    task1.setDescription( "This is description for my task called TASK1" );
-
-    let task44545 = reservelist.addTask('reserveTaskInReserveList');
-    task44545.setDescription('description for task44545')
 
     let taskTemplate = document.querySelector('#task-template').content.querySelector('.task');
     let taskViewContainer = document.querySelector('.tab-content'); // create place for task
@@ -20,13 +12,12 @@
     let deadlineSetField = setupWindow.querySelector('.set-deadline-input');
     let categorySetField = setupWindow.querySelector('.set-category-input');
     let descriptionSetField = setupWindow.querySelector('.set-description-input');
-
+    let f; // pseudo-array rendered tasks
     let redX = document.querySelector('.setup-window').content.querySelector('.close-button');
     let okBtn = document.querySelector('.setup-window').content.querySelector('.ok-button');
     let blur = document.querySelector('.blur');
 
     let hideTaskBtn = document.querySelector('.btn-hide-task');  // create button for hide task
-
 
     const taskFieldObj = {
         title: '.task-field-title',
@@ -34,31 +25,29 @@
         importance: '.task-field-importance',
         deadline: '.task-field-deadline',
         category: '.task-field-category',
-        description: '.task-field-description'
-};
+        description: '.task-field-description',
+                    };
 
-
-    const taskPropertiesObj = {
-
+    let rererender = () => {
+        (function(){ () => f.forEach( item => item.remove() )})();
     };
-
-    for (let key in taskFieldObj){
-        console.log(key);
-        console.log(taskFieldObj[key]);
-    };
-
 
     let renderCurrentTasks = array => {
-        for (let i = 0; i < (array.list).length; i++) {
+        (array.list).forEach( (item, i, arr) => {
             let a = taskTemplate.cloneNode(true);
-            a.querySelector('.task-field-title').textContent = (array.list)[i].title;
-            a.querySelector('.task-field-create-date').textContent = (array.list)[i].createDate;
-            a.querySelector('.task-field-importance').textContent = (array.list)[i].importance;
-            a.querySelector('.task-field-deadline').textContent = (array.list)[i].deadline;
-            a.querySelector('.task-field-category').textContent = (array.list)[i].category;
-            a.querySelector('.task-field-description').textContent = (array.list)[i].description;
+            for (let key in taskFieldObj){
+                console.log(item[key]);
+                console.log(a.querySelector(taskFieldObj[key]));
+            }
+            a.querySelector(taskFieldObj.title).innerText = (array.list)[i].title;
+            a.querySelector(taskFieldObj.createDate).innerText = (array.list)[i].createDate;
+            a.querySelector(taskFieldObj.importance).innerText = (array.list)[i].importance;
+            a.querySelector(taskFieldObj.deadline).innerText = (array.list)[i].deadline;
+            a.querySelector(taskFieldObj.category).innerText = (array.list)[i].category;
+            a.querySelector(taskFieldObj.description).innerText = (array.list)[i].description;
             taskViewContainer.appendChild(a);
-        }
+        });
+        f = taskViewContainer.querySelectorAll('.task');
     };
 
     let openTaskSetter = () => {
@@ -67,8 +56,8 @@
     };
 
     let taskCreator = () => {
-        let elem2 = taskTemplate.cloneNode(true);
-        taskViewContainer.appendChild(elem2);
+        let b = taskTemplate.cloneNode(true);
+        taskViewContainer.appendChild(b);
         newTaskList.addTask();  // add new task (object) to array NEW
         let i = (newTaskList.list).length - 1;
         let NEWi = (newTaskList.list)[i];  // last task in array NEW
@@ -77,15 +66,16 @@
         NEWi.setDeadline(deadlineSetField.value);
         NEWi.setCategory(categorySetField.value);
         NEWi.setDescription(descriptionSetField.value);
-        elem2.querySelector('.task-field-title').textContent = (newTaskList.list)[i].title;
-        elem2.querySelector('.task-field-create-date').textContent = (newTaskList.list)[i].createDate;
-        elem2.querySelector('.task-field-importance').textContent = (newTaskList.list)[i].importance;
-        elem2.querySelector('.task-field-deadline').textContent = (newTaskList.list)[i].deadline;
-        elem2.querySelector('.task-field-category').textContent = (newTaskList.list)[i].category;
-        elem2.querySelector('.task-field-description').textContent = (newTaskList.list)[i].description;
+        b.querySelector('.task-field-title').textContent = (newTaskList.list)[i].title;
+        b.querySelector('.task-field-create-date').textContent = (newTaskList.list)[i].createDate;
+        b.querySelector('.task-field-importance').textContent = (newTaskList.list)[i].importance;
+        b.querySelector('.task-field-deadline').textContent = (newTaskList.list)[i].deadline;
+        b.querySelector('.task-field-category').textContent = (newTaskList.list)[i].category;
+        b.querySelector('.task-field-description').textContent = (newTaskList.list)[i].description;
         setupWindowForm.reset();
         setupWindow.remove();
         blur.classList.add('hidden');
+        rererender();
     };
 
     let closeTaskSetter = () => {
@@ -101,12 +91,12 @@
             blur.classList.add('hidden');
         }
     };
-    console.log(newTaskList);
-    console.log(reservelist);
+
     renderCurrentTasks(newTaskList);
     renderCurrentTasks(reservelist);
     addTaskBtn.addEventListener('click', openTaskSetter);
     redX.addEventListener('click', closeTaskSetter);
     document.addEventListener('keydown', escapeTaskSetter);
     okBtn.addEventListener('click', taskCreator );
+
 })(); //IIFE

@@ -1,7 +1,7 @@
 "use strict";
 (function(){
     let setupDialogElement = document.querySelector('.setup-window').content.querySelector('.setup-window-1');
-    let dialogHandler = setupDialogElement.querySelector('.setup-window-form');
+    let dialogHandler = setupDialogElement.querySelector('.handler');
 
     dialogHandler.addEventListener('mousedown', function (evt) {
         evt.preventDefault();

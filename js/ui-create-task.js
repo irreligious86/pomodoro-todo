@@ -36,8 +36,6 @@
         (array.list).forEach( (item, i, arr) => {
             let a = taskTemplate.cloneNode(true);
             for (let key in taskFieldObj){
-                console.log(item[key]);
-                console.log(a.querySelector(taskFieldObj[key]));
             }
             a.querySelector(taskFieldObj.title).innerText = (array.list)[i].title;
             a.querySelector(taskFieldObj.createDate).innerText = (array.list)[i].createDate;

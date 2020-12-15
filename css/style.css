@@ -72,4 +72,24 @@ a {
   padding: 10px;
 }
 
+/*IMAGE*/
+
+.block1 {
+  background:
+          linear-gradient(135deg, #111 25%, transparent 25%) -50px 0,
+          linear-gradient(225deg, #111 25%, transparent 25%) -50px 0,
+          linear-gradient(315deg, #111 25%, transparent 25%),
+          linear-gradient(45deg, #111 25%, transparent 25%);
+  background-size: 100px 100px;
+  background-color: #500;
+}
+.block2{
+  height:400px;
+  background-image: url(http://pomelnikov.com/images/design/50-factures/Facture39.png);
+  background-size: 200px;
+}
+
+
+
+
 

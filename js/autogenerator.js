@@ -52,34 +52,51 @@ let autogenTasks = n => {
         f.setImportance(Math.ceil(Math.random() * 10));
         f.setDeadline(makeDate());
         f.setCategory(makeCat());
-        console.log(t);
+        // console.log(t);
     });
     return newTaskList;
 };
-autogenTasks(8);
 
 
+let handgenTasks = () => {
+    let task12345 = newTaskList.addTask("task N 0001");
+    let task27451 = newTaskList.addTask("rtyjryjuryuj");
+    let task34747 = newTaskList.addTask("fghmfgm");
+    let task14472 = newTaskList.addTask("dfncghn");
+    let task17444 = newTaskList.addTask("cghmfghm");
+    let task12522 = newTaskList.addTask("fmfgmfgmjmj,");
+    let task14542 = newTaskList.addTask("rfyumfymfymfyuyu");
+    task12345.setDescription( "This is description for my task called TASK1" );
+    task27451.setDescription( "qqqqqqqqqqqqqwwwwwwwwwwwweeeeeeeeeee" );
+    task34747.setDescription( "qqqqqqqqqqqqqwwwwwwwwwwwweeeeeeeeeee" );
+    task14472.setDescription( "qqqqqqqqqqqqqwwwwwwwwwwwweeeeeeeeeee" );
+    task17444.setDescription( "qqqqqqqqqqqqqwwwwwwwwwwwweeeeeeeeeee" );
+    task12522.setDescription( "qqqqqqqqqqqqqwwwwwwwwwwwweeeeeeeeeee" );
+    task14542.setDescription( "qqqqqqqqqqqqqwwwwwwwwwwwweeeeeeeeeee" );
+
+    let task44545 = reservelist.addTask('reserveTaskInReserveList');
+    task44545.setDescription('description for task44545')
+};
+let correctParameter = 4;
+
+correctParameter > 3 ? autogenTasks(18) : handgenTasks() ;
+
+// newTaskList.sortByImportance();
+// console.log(newTaskList.sortByImportance());
+// console.log(newTaskList);
+
+newTaskList.sortByTitle();
+console.log(newTaskList.sortByTitle());
+console.log(newTaskList);
+
+// newTaskList.filterByImportance(4);
+// console.log(newTaskList.filterByImportance(4));
+
+// newTaskList.sortByCategory();
+// console.log(newTaskList.sortByCategory());
+// console.log(newTaskList);
 
 
-
-
-// let task12345 = newTaskList.addTask("task N 0001");
-// let task27451 = newTaskList.addTask("rtyjryjuryuj");
-// let task34747 = newTaskList.addTask("fghmfgm");
-// let task14472 = newTaskList.addTask("dfncghn");
-// let task17444 = newTaskList.addTask("cghmfghm");
-// let task12522 = newTaskList.addTask("fmfgmfgmjmj,");
-// let task14542 = newTaskList.addTask("rfyumfymfymfyuyu");
-// task12345.setDescription( "This is description for my task called TASK1" );
-// task27451.setDescription( "qqqqqqqqqqqqqwwwwwwwwwwwweeeeeeeeeee" );
-// task34747.setDescription( "qqqqqqqqqqqqqwwwwwwwwwwwweeeeeeeeeee" );
-// task14472.setDescription( "qqqqqqqqqqqqqwwwwwwwwwwwweeeeeeeeeee" );
-// task17444.setDescription( "qqqqqqqqqqqqqwwwwwwwwwwwweeeeeeeeeee" );
-// task12522.setDescription( "qqqqqqqqqqqqqwwwwwwwwwwwweeeeeeeeeee" );
-// task14542.setDescription( "qqqqqqqqqqqqqwwwwwwwwwwwweeeeeeeeeee" );
-//
-// let task44545 = reservelist.addTask('reserveTaskInReserveList');
-// task44545.setDescription('description for task44545')
 
 //
 // const names = [

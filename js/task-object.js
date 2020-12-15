@@ -99,16 +99,22 @@ class Tasklist {
         return this.list.sort( (a,b) => b.deadline - a.deadline );
     }
     sortByCategory() {
-        return this.list.sort( (a,b) => b.category - a.category );
+        return this.list.sort( (a,b) => {
+            if (a.category > b.category){return 1} else if (a.category < b.category) {return -1} else {return 0}
+        } );
     }
     sortById() {
-        return this.list.sort( (a,b) => b.id - a.id );
+        return this.list.sort( (a,b) => {
+            if (a.id > b.id){return 1} else if (a.id < b.id) {return -1} else {return 0}
+        } );
     }
     sortByCreateDate() {
         return this.list.sort( (a,b) => b.createDate - a.createDate );
     }
     sortByOwned(title) {
-        return this.list.sort( (a,b) => b.owned - a.owned );
+        return this.list.sort( (a,b) => {
+            if (a.owned > b.owned){return 1} else if (a.owned < b.owned) {return -1} else {return 0}
+        } );
     }
     filterByTitle(title) {
         return this.list.filter( item => item.title === title);

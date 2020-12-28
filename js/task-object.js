@@ -77,65 +77,105 @@ class Tasklist {
         this.title = title;
         this.list = [];
     }
+
     addTask(title) {
         const task = new Task(title);
         task.owned = this.title;
         this.list.push(task);
         return task;
     }
+
     removeTask(title) {
         const i = this.list.findIndex(item => item.title === title);
         if (i >= 0) this.list.splice(i, 1);
     }
+
     sortByTitle() {
-        return this.list.sort( (a, b) => {
-            if (a.title > b.title){return 1} else if (a.title < b.title) {return -1} else {return 0}
-        } );
+        return this.list.sort((a, b) => {
+            if (a.title > b.title) {
+                return 1
+            } else if (a.title < b.title) {
+                return -1
+            } else {
+                return 0
+            }
+        });
     }
+
     sortByImportance() {
-        return this.list.sort( (a,b) => b.importance - a.importance );
+        return this.list.sort((a, b) => b.importance - a.importance);
     }
+
     sortByDeadLine() {
-        return this.list.sort( (a,b) => b.deadline - a.deadline );
+        return this.list.sort((a, b) => b.deadline - a.deadline);
     }
+
     sortByCategory() {
-        return this.list.sort( (a,b) => {
-            if (a.category > b.category){return 1} else if (a.category < b.category) {return -1} else {return 0}
-        } );
+        return this.list.sort((a, b) => {
+            if (a.category > b.category) {
+                return 1
+            } else if (a.category < b.category) {
+                return -1
+            } else {
+                return 0
+            }
+        });
     }
+
     sortById() {
-        return this.list.sort( (a,b) => {
-            if (a.id > b.id){return 1} else if (a.id < b.id) {return -1} else {return 0}
-        } );
+        return this.list.sort((a, b) => {
+            if (a.id > b.id) {
+                return 1
+            } else if (a.id < b.id) {
+                return -1
+            } else {
+                return 0
+            }
+        });
     }
+
     sortByCreateDate() {
-        return this.list.sort( (a,b) => b.createDate - a.createDate );
+        return this.list.sort((a, b) => b.createDate - a.createDate);
     }
-    sortByOwned(title) {
-        return this.list.sort( (a,b) => {
-            if (a.owned > b.owned){return 1} else if (a.owned < b.owned) {return -1} else {return 0}
-        } );
+
+    sortByOwned() {
+        return this.list.sort((a, b) => {
+            if (a.owned > b.owned) {
+                return 1
+            } else if (a.owned < b.owned) {
+                return -1
+            } else {
+                return 0
+            }
+        });
     }
+
     filterByTitle(title) {
-        return this.list.filter( item => item.title === title);
+        return this.list.filter(item => item.title === title);
     }
+
     filterByCreateDate(createDate) {
-        return this.list.filter( item => item.createDate === createDate );
+        return this.list.filter(item => item.createDate === createDate);
     }
+
     filterByID(id) {
-        return this.list.filter( item => item.id === id );
+        return this.list.filter(item => item.id === id);
     }
+
     filterByCategory(category) {
-        return this.list.filter( item => item.category === category );
+        return this.list.filter(item => item.category === category);
     }
+
     filterByImportance(importance) {
-        return this.list.filter( item => item.importance === importance );
+        return this.list.filter(item => item.importance === importance);
     }
+
     filterByOwned(owned) {
-        return this.list.filter( item => item.owned === owned );
+        return this.list.filter(item => item.owned === owned);
     }
+
     filterByDeadLine(deadline) {
-        return this.list.filter( item => item.deadline === deadline );
+        return this.list.filter(item => item.deadline === deadline);
     }
 }
 
@@ -150,62 +190,56 @@ class Task {
         this.deadline = null;
         this.description = '';
     }
+
+    setId(value) {
+        this.id = value;
+    }
+
     setTitle(title) {
         this.title = title;
     }
+
     setImportance(value) {
         this.importance = value;
     }
+
     setDeadline(value) {
         this.deadline = value;
     }
+
     setDescription(value) {
         this.description = value;
     }
+
     setCategory(value) {
         this.category = value;
     }
+
     setOwned(title) {
     }
 
 }
 
-/////////////////////////////////////////////////////////////
-// function msToTime(duration) {
-//     let milliseconds = parseInt((duration % 1000) / 100),
-//         seconds = parseInt((duration / 1000) % 60),
-//         minutes = parseInt((duration / (1000 * 60)) % 60),
-//         hours = parseInt((duration / (1000 * 60 * 60)) % 24);
-//
-//     hours = (hours < 10) ? "0" + hours : hours;
-//     minutes = (minutes < 10) ? "0" + minutes : minutes;
-//     seconds = (seconds < 10) ? "0" + seconds : seconds;
-//
-//     return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
-// }
 
-///////////////////////////////////
-// _createPublishedAt(value) {
-//     const publishedAt = document.createElement('span');
-//     const dateContainer = document.createElement('div');
 //
-//     const date = new Date(value);
+// let initPort = {
+//     title: this.titleField,
+//     id: '4455zozo',
+//     category: this.categoryField,
+//     importance: this.importanceField,
+//     createDate: '10/10/2020',
+//     deadline: this.deadlineField,
+//     description: this.descriptionField,
+//     redX: () => taskSetupWindowForm.querySelector('.close-button'),
+//     okBtn: () => taskSetupWindowForm.querySelector('.ok-button'),
+//     titleField: () =>  document.querySelector('.task-field-title'),
+//     importanceField: () => document.querySelector('.task-field-importance') ,
+//     deadlineField: () => document.querySelector('.task-field-deadline') ,
+//     categoryField: () => document.querySelector('.task-field-category') ,
+//     descriptionField: () => document.querySelector('.task-field-description') ,
 //
-//     const hours = ('0' + date.getHours()).slice(-2);
-//     const minutes = ('0' + date.getUTCMinutes()).slice(-2);
-//     const seconds = ('0' + date.getUTCSeconds()).slice(-2);
-//     const days = ('0' + date.getDate()).slice(-2);
-//     const months = ('0' + (date.getMonth() + 1)).slice(-2);
-//     const years = date.getFullYear();
 //
-//     const currentDate = `Опубликовано ${days}.${months}.${years} в ${hours}:${minutes}:${seconds}`;
-//     publishedAt.textContent = currentDate;
 //
-//     dateContainer.classList.add('date-container');
-//     publishedAt.classList.add('date');
-//
-//     dateContainer.append(publishedAt);
-//
-//     return dateContainer;
-// }
-//////////////////////
+// };
+
+

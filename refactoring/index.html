@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro ToDo</title>
+    <link rel="stylesheet" href="./css/main-template.css" />
+    <link rel="stylesheet" href="./css/content-template.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/task-template.css" />
+    <link rel="stylesheet" href="./css/rain.css" />
+<!--    <script src="./js/jquery-3.5.1.js" defer></script>-->
+<!--    <script src="./js/jq-script.js" defer></script>-->
+    <script src="./js/task-object.js" defer></script>
+    <script src="./js/autogenerator.js" defer></script>
+    <script src="./js/ui-create-task.js" defer></script>
+    <script src="./js/drag.js" defer></script>
+    <script src="./js/data.js" defer></script>
+    <script src="./js/rain.js" defer></script>
+    <script src="./js/script.js" defer></script>
+
+  </head>
+  <body>
+    <div id="playground" class="wrapper">
+      <header>
+        <ul class="header-list">
+          <li><button>Account</button></li>
+          <li><button>LOGO</button></li>
+          <li><button>Premium</button></li>
+          <li><button>Networks</button></li>
+          <li><button>Rating</button></li>
+          <li><button>Report</button></li>
+          <li><button>Pomodoro-timer</button></li>
+        </ul>
+      </header>
+      <div class="navbar">
+        <ul class="navbar-list">
+          <li class="btn-add-task">Добавить проект</li>
+          <li class="btn-sort-task">Сортировать</li>
+          <li class=" ">Завтра</li>
+          <li class=" ">Предстоящие</li>
+          <li class=" ">Когда-нибудь</li>
+          <li class=" ">Сегодня</li>
+          <li class=" ">События</li>
+          <li class=" ">Выполненные</li>
+          <li class=" ">Блог</li>
+          <li class=" ">Руководство пользователя</li>
+          <li class=" ">Контакты</li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="tab">
+          <div class="tab-header">
+            <h1>Task Title ID</h1>
+          </div>
+          <div class="tab-content">
+
+          </div>
+          <div class="tab-additional">
+            <h3>Lorem Ipsum</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+              laudantium ut eius adipisci qui asperiores perspiciatis iusto
+              natus, mollitia necessitatibus.
+            </p>
+            <p>
+              Ipsa, reiciendis. Architecto ea obcaecati eius! Necessitatibus
+              natus illum inventore consequatur! Nostrum debitis, quos delectus
+              incidunt vel optio quaerat ipsam.
+            </p>
+            <p>
+              Impedit cupiditate vitae aspernatur, ipsa voluptates eaque ea
+              repellendus aliquid distinctio ex neque, ratione ad ipsum modi
+              provident illo. Placeat.
+            </p>
+            <p>location.reload();</p>
+            <p>isNaN();</p>
+            <p>parseInt();</p>
+            <p>innerHTML = '';</p>
+            <p>innerText = '';</p>
+            <p>outerHTML = '';</p>
+            <p>insertAdjacentHTML(position, text);</p>
+            <p> </p>
+          </div>
+          <div class="tab-footer">
+            <p>Lorem ipsum dolor sit.</p>
+          </div>
+        </div>
+        <div class="tab hidden">
+          <div class="tab-header">
+            <h1>Account</h1>
+          </div>
+          <div class="tab-content">
+            <form action="form.php" method="post">
+              <fieldset>
+                <legend>Create new user</legend>
+                <label
+                  ><em>Username</em
+                  ><input
+                    type="text"
+                    placeholder="Your Name"
+                    autofocus
+                    required
+                  />
+                  <!--<div class="truth">+/-</div> -->
+                </label>
+                <br />
+                <label>
+                  <em>E-mail</em
+                  ><input type="email" placeholder="Your E-mail" required />
+                  <!-- <div class="truth">+/-</div> -->
+                </label>
+                <br />
+                <label
+                  ><em>Password</em
+                  ><input type="text" placeholder="Your password" required />
+                  <!--<div class="truth">+/-</div> -->
+                </label>
+                <br />
+              </fieldset>
+              <fieldset>
+                <legend>Optional info</legend>
+                <label
+                  ><em>First Name</em
+                  ><input type="text" placeholder="First Name" />
+                  <!-- <div class="truth">+/-</div> -->
+                </label>
+                <br />
+                <label
+                  ><em>Second Name</em
+                  ><input type="text" placeholder="Second Name" />
+                  <!-- <div class="truth">+/-</div> -->
+                </label>
+                <br />
+                <label
+                  ><em>Tel</em
+                  ><input type="tel" placeholder="Enter Tel Number" />
+                  <!-- <div class="truth">+/-</div> -->
+                </label>
+                <br />
+              </fieldset>
+              <input type="reset" />
+              <button type="submit">Send</button>
+            </form>
+            <form action="form.php" method="post">
+              <fieldset>
+                <legend>Log In</legend>
+                <label
+                  ><em>Username</em
+                  ><input
+                    type="text"
+                    placeholder="Enter Username"
+                    autofocus
+                    required
+                  />
+                  <!--<div class="truth">+/-</div> -->
+                </label>
+                <br />
+                <label>
+                  <em>Password</em
+                  ><input
+                    type="password"
+                    placeholder="Enter password"
+                    required
+                  />
+                  <!-- <div class="truth">+/-</div> -->
+                </label>
+                <br />
+                <label for="remember-me">Remember me!</label>
+                <input type="checkbox" id="remember-me" name="remember-me" />
+              </fieldset>
+              <input type="reset" />
+              <button type="submit">Send</button>
+            </form>
+          </div>
+          <div class="tab-additional"></div>
+          <div class="tab-footer"></div>
+        </div>
+        <!--        START IMAGE-->
+        <div class="block1">
+          <div class="block2"></div>
+        </div>
+        <!--        FINISH IMAGE-->
+      </div>
+      <footer>
+        <a href="https://frontender.info/a-guide-to-flexbox/"
+          >Подробная инструкция для FLEX</a
+        >
+
+        <a href="https://tuhub.ru/posts/css-grid-complete-guide"
+          >Подробная инструкция для GRID</a
+        >
+        <a href="https://api.jquery.com/">jQuery API</a>
+        <a
+          href="https://lifehacker.ru/kak-uskorit-rabotu-s-tekstom-s-pomoshhyu-klaviaturnykh-sokrashhenijj/"
+          >Выделение текста</a
+        >
+        <a href="https://www.iconfinder.com/free_icons">Iconfinder.com</a>
+      </footer>
+    </div>
+    <template id="task-template">
+      <div class="task">
+        <div class="fields">
+          <div class="task-field">
+            <h4>Task title:</h4>
+            <div class="task-field-title">
+              <em>value</em>
+            </div>
+          </div>
+          <div class="task-field">
+            <h4>Create date:</h4>
+            <div class="task-field-create-date">
+              <em>value</em>
+            </div>
+          </div>
+          <div class="task-field">
+            <h4>Importance:</h4>
+            <div class="task-field-importance">
+              <em>value</em>
+            </div>
+          </div>
+          <div class="task-field">
+            <h4>Deadline:</h4>
+            <div class="task-field-deadline">
+              <em>value</em>
+            </div>
+          </div>
+          <div class="task-field">
+            <h4>Category:</h4>
+            <div class="task-field-category">
+              <em>value</em>
+            </div>
+          </div>
+        </div>
+        <div class="task-field-description">
+          <h4>Content:</h4>
+          <em>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur necessitatibus, quos quaerat optio eos nobis totam illo inventore delectus quod alias sequi quis. Ipsa esse mollitia error dicta voluptate repellat!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error culpa, amet id eligendi expedita voluptas aliquid eaque pariatur!
+          </em>
+        </div>
+        <div class="task-buttons">
+          <button
+                  class="btn-hide-task"
+                  type="button"
+                  value="Edit"
+          >Hide</button>
+          <button
+                  class="btn-edit-task"
+                  type="button"
+                  value="Edit"
+          >Edit</button>
+          <button
+                  class="btn-remove-task"
+                  type="button"
+                  value="Remove"
+          >Remove</button>
+          <button
+                  class="btn-description-task"
+                  type="button"
+                  value="Description"
+          >Description</button>
+          <button
+                  class="btn-importance-task"
+                  type="button"
+                  value="Importance"
+          >Importance</button>
+          <button
+                  class="btn-category-task"
+                  type="button"
+                  value="Category"
+          >Category</button>
+          <button
+                  class="btn-save-task"
+                  type="button"
+                  value="Save"
+          >Save</button>
+          <button
+                  class="btn-done-task"
+                  type="button"
+                  value="Done"
+          >Done</button>
+        </div>
+      </div>
+    </template>
+<template class="setup-window">
+  <div class="setup-window-1">
+      <form action="form.php" method="post" class="setup-window-form" >
+        <div tabindex="0" class="close-button"></div>
+        <fieldset>
+          <legend>Set new task</legend>
+          <label>
+            <em>Title</em>
+            <input type="text" class="set-title-input" placeholder="Non-titled" minlength="3" maxlength="28" autofocus
+                   required/>
+          </label>
+          <br />
+          <label>
+            <em>Importance</em>
+            <input type="number" class="set-importance-input" placeholder='0-10' aria-valuemin="0" aria-valuemax="10"
+                   required/>
+          </label>
+          <br />
+          <label>
+            <em>Deadline</em>
+            <input type="date" class="set-deadline-input" placeholder="Finish date" required/>
+          </label>
+          <br />
+          <label>
+            <em>Category</em>
+            <input type="text" class="set-category-input" placeholder="No required" list="categories" />
+            <datalist id="categories">
+              <option value="Category 1">
+              <option value="Category 2">
+              <option value="Category 3">
+              <option value="Category 4">
+              <option value="Category 5">
+            </datalist>
+          </label>
+          <br />
+          <label>
+            <em>Description</em>
+            <input type="text" class="set-description-input" placeholder="Enter some description " required />
+          </label>
+          <br />
+        </fieldset>
+        <input type="reset" />
+        <button type="submit">Send</button>
+        <input type="button" value="Ok!" class="ok-button">
+        <input type="button" value="Move" class="handler">
+      </form>
+    </div>
+</template>
+  <div class="blur hidden"></div>
+  </body>
+</html>

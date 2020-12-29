@@ -1,14 +1,28 @@
+// +7 996 961 00 07
+
 "use strict";
 
-// function msToTime(duration) {
-//   let milliseconds = parseInt((duration % 1000) / 100),
-//       seconds = parseInt((duration / 1000) % 60),
-//       minutes = parseInt((duration / (1000 * 60)) % 60),
-//       hours = parseInt((duration / (1000 * 60 * 60)) % 24);
-//
-//   hours = (hours < 10) ? "0" + hours : hours;
-//   minutes = (minutes < 10) ? "0" + minutes : minutes;
-//   seconds = (seconds < 10) ? "0" + seconds : seconds;
-//
-//   return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
-// };
+// TABS
+
+const tabSettings = () => {
+    const init = () => {
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach( (item) => {
+            item.style.display = 'none';
+        })
+    }
+
+    const showTabs = function() {
+        let data = this.getAttribute('data');
+        init();
+        document.querySelector(`.tab[data="${data}" ]`).style.display = 'grid';
+    }
+
+    const tabLinks = document.querySelectorAll('.tab-link');
+    tabLinks.forEach( (item) => {
+        item.onclick = showTabs;
+    })
+
+    init();
+}
+tabSettings();

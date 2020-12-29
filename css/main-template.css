@@ -48,6 +48,10 @@ body {
 
   /* -------------------------------------- */
 
+.tab-link {
+  cursor: pointer;
+}
+
   .tab {
     /* margin: 5px;
     padding: 10px; */
@@ -121,6 +125,7 @@ ul.header-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-top: 3px;
     padding-inline-start: 0;
   }
   ul.navbar-list > li {
@@ -131,6 +136,22 @@ ul.header-list {
     padding: 8px 25px;
     width: 250px;
   }
+
+.btn-add-task, .btn-sort-task {
+  /*border: 1px solid #078d39;*/
+  margin: 7px;
+  padding: 5px 25px;
+  background: rgb(236, 206, 55);
+  box-shadow:  0 0 3px 3px rgb(140, 112, 239);
+}
+
+.btn-add-task {
+
+}
+
+.btn-sort-task {
+
+}
 
 
 @media screen and (max-width: 1037px) {

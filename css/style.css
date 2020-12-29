@@ -72,6 +72,17 @@ a {
   padding: 10px;
 }
 
+#test {
+  position: relative;
+  font-size: 20px;
+  margin: 25px;
+  width: 150px;
+  background: #f6c564;
+  border: 1px solid darkred;
+  box-shadow: 8px 6px 3px 3px rgba(100, 150, 87, .4);
+}
+
+
 /*IMAGE*/
 
 .block1 {

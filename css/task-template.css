@@ -67,43 +67,4 @@
     border-radius: 8px;
     box-shadow: inset 0 0 5px 1px rgba(0, 128, 0, 0.534);
   }
-
-
-
-.setup-window-box {
-    width: 500px;
-    height: 360px;
-    padding: 8px;
-    border: 1px solid rgb(0, 76, 160);
-    border-radius: 3px;
-    position: fixed;
-    left: 25%;
-    bottom: 25%;
-    background: rgba(29, 122, 229, 0.95);
-    box-shadow: 0 0 18px 4px slategrey;
-    z-index: 3;
-}
-
-.close-button {
-    position: relative;
-    top: 0;
-    right: -470px;
-    background-image: url(http://s1.iconbird.com/ico/1112/Koloria/w21h211351868964ErrorSymbol.png);
-    width: 15px;
-    height: 15px;
-    border-radius: 3px;
-    margin: 5px;
-    padding: 3px;
-}
-
-.blur {
-    margin: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #062204;
-    opacity: 0.7;
-    z-index: 2;
-}
+  

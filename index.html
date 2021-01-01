@@ -7,15 +7,20 @@
     <link rel="stylesheet" href="./css/main-template.css"/>
     <link rel="stylesheet" href="./css/content-template.css"/>
     <link rel="stylesheet" href="./css/task-template.css"/>
-    <link rel="stylesheet" href="./css/modale.css"/>
+    <link rel="stylesheet" href="./css/modal.css"/>
+    <link rel="stylesheet" href="./css/slider.css"/>
     <link rel="stylesheet" href="./css/style.css"/>
     <!--    <script src="./js/jquery-3.5.1.js" defer></script>-->
     <!--    <script src="./js/jq-script.js" defer></script>-->
+
+    <script src="./js/serialize.js" defer></script>
     <script src="./js/tabs.js" defer></script>
+    <script src="./js/slider.js" defer></script>
     <script src="./js/check.js" defer></script>
     <script src="./js/task-object.js" defer></script>
-    <script src="./js/autogenerator.js" defer></script>
-    <script src="./js/modale-create-task.js" defer></script>
+    <script src="./js/auto-generator.js" defer></script>
+    <script src="./js/modal.js" defer></script>
+    <script src="./js/modal-create-task.js" defer></script>
     <script src="./js/drag.js" defer></script>
     <script src="./js/listeners.js" defer></script>
     <script src="./js/data.js" defer></script>
@@ -107,10 +112,10 @@
                 <h1>Tab Header</h1>
             </div>
             <div class="tab-content">
-                <h4>Информация о событии нажатой клавиши</h4>
-                <em>Введите в поле ввода любой символ и на консоли
-                    получите справочные  данные о событии клавиши</em> <br>
-                <input type="text" id="test">
+                <h4>Some tab header H4</h4>
+                <em>Some text</em>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, sed voluptas. Eos, facere fugiat
+                    inventore magnam molestiae sed? Beatae, deleniti officia. Enim facere quis suscipit.</p>
             </div>
             <div class="tab-additional">
                 <em>
@@ -254,15 +259,58 @@
                 <h1>Tab Header</h1>
             </div>
             <div class="tab-content">
-                <h4>Some tab header H4</h4>
-                <em>Some text</em>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, sed voluptas. Eos, facere fugiat
-                    inventore magnam molestiae sed? Beatae, deleniti officia. Enim facere quis suscipit.</p>
+                <div class="block-modal-test">
+                    <div class="form-slider">
+                        <div class="left-50">
+                            <p class="read-rules">
+                                Read rules >>>
+                            </p>
+                        </div>
+                        <div class="right-50">
+                            <h3 style="margin:5px">Rules:</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolorem, doloribus ducimus
+                                eveniet expedita iusto necessitatibus, nesciunt, omnis sapiente sequi tempore
+                                voluptatibus. Optio voluptas, voluptate.</p>
+                            <p>Facere fugit impedit nisi praesentium qui, tempore? Doloribus explicabo ipsa rem sequi
+                                suscipit! Fugiat, iusto, nisi? Aliquid amet cum dolor, ducimus eius laudantium numquam
+                                veritatis.</p>
+                            <p>A consequatur eos expedita illum iste neque numquam odio, omnis perspiciatis, quam qui
+                                repellat repudiandae sapiente sequi sint sit, sunt voluptate voluptatem! A doloremque,
+                                quia?</p>
+                            <p>Aliquid aspernatur doloribus illo, impedit ipsa molestiae molestias numquam omnis
+                                perferendis placeat porro possimus quae tempora vel voluptates! Autem illo officia
+                                pariatur porro sapiente, sit.</p>
+                            <p>Doloribus eum ipsa maiores, minima quia quibusdam rem saepe tempore ullam unde vel velit,
+                                veritatis voluptates. Alias aspernatur dolorum eos nulla sunt totam velit veniam.</p>
+                            <p>Cupiditate nobis quas similique voluptate! Adipisci aliquid beatae exercitationem
+                                explicabo fuga impedit, necessitatibus quod. Aperiam architecto delectus dicta dolore
+                                est labore laborum odio sequi tempore.</p>
+                            <p class="read-rules-back"> <<< Back</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <div class="tab-additional">
+
                 <em>
-                    Some additional text or elements
+                    Some modal windows
                 </em>
+                <div class="some-class">
+                    <button class="modal-show" data-modal="#sign-in"> Show modal window</button>
+                    <div class="modal-wrap hidden">
+                        <div class="modal hidden" id="sign-in">
+                            <h4>Hello! I am modal window</h4>
+                            <h4>Информация о событии нажатой клавиши</h4>
+                            <em>Введите в поле ввода любой символ и на консоли
+                                получите справочные данные о событии клавиши</em> <br>
+                            <input type="text" id="test">
+                            <button class="modal-close" data-modal="#sign-in">Close</button>
+                            <button class="modal-close round-close" data-modal="#sign-in">x</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="tab-footer">
                 <h5>
@@ -372,11 +420,6 @@
                 </h5>
             </div>
         </div>
-        <!--        START IMAGE-->
-        <div class="block1">
-            <div class="block2"></div>
-        </div>
-        <!--        FINISH IMAGE-->
     </div>
     <footer>
         <a href="https://frontender.info/a-guide-to-flexbox/"
@@ -404,6 +447,58 @@
 
     </footer>
 </div>
+
+<div class="setup-wrapper-box hidden">
+    <div class="setup-window-box hidden">
+        <form action="form.php" method="post" class="setup-window-form">
+            <div tabindex="0" class="close-button"></div>
+            <fieldset>
+                <legend>Set new task</legend>
+                <label class="set-title-label">
+                    <em>Title</em>
+                    <input type="text" class="set-title-input" placeholder="Non-titled" minlength="3" maxlength="28"
+                           autofocus
+                           required/>
+                </label>
+                <br/>
+                <label class="set-importance-label">
+                    <em>Importance</em>
+                    <input type="number" class="set-importance-input" placeholder='0-10' aria-valuemin="0"
+                           aria-valuemax="10"
+                           required/>
+                </label>
+                <br/>
+                <label class="set-deadline-label">
+                    <em>Deadline</em>
+                    <input type="date" class="set-deadline-input" placeholder="Finish date" required/>
+                </label>
+                <br/>
+                <label class="set-category-label">
+                    <em>Category</em>
+                    <input type="text" class="set-category-input" placeholder="No required" list="categories"/>
+                    <datalist id="categories">
+                        <option value="Category 1">
+                        <option value="Category 2">
+                        <option value="Category 3">
+                        <option value="Category 4">
+                        <option value="Category 5">
+                    </datalist>
+                </label>
+                <br/>
+                <label class="set-description-label">
+                    <em>Description</em>
+                    <input type="text" class="set-description-input" placeholder="Enter some description " required/>
+                </label>
+                <br/>
+            </fieldset>
+            <input type="reset"/>
+            <button type="submit">Send</button>
+            <input type="button" value="Ok!" class="ok-button">
+            <input type="button" value="Move" class="handler">
+        </form>
+    </div>
+</div>
+
 <template class="task-template">
     <div class="task">
         <div class="fields">
@@ -500,55 +595,5 @@
         </div>
     </div>
 </template>
-
-<div class="setup-window-box hidden">
-    <form action="form.php" method="post" class="setup-window-form">
-        <div tabindex="0" class="close-button"></div>
-        <fieldset>
-            <legend>Set new task</legend>
-            <label class="set-title-label">
-                <em>Title</em>
-                <input type="text" class="set-title-input" placeholder="Non-titled" minlength="3" maxlength="28"
-                       autofocus
-                       required/>
-            </label>
-            <br/>
-            <label class="set-importance-label">
-                <em>Importance</em>
-                <input type="number" class="set-importance-input" placeholder='0-10' aria-valuemin="0"
-                       aria-valuemax="10"
-                       required/>
-            </label>
-            <br/>
-            <label class="set-deadline-label">
-                <em>Deadline</em>
-                <input type="date" class="set-deadline-input" placeholder="Finish date" required/>
-            </label>
-            <br/>
-            <label class="set-category-label">
-                <em>Category</em>
-                <input type="text" class="set-category-input" placeholder="No required" list="categories"/>
-                <datalist id="categories">
-                    <option value="Category 1">
-                    <option value="Category 2">
-                    <option value="Category 3">
-                    <option value="Category 4">
-                    <option value="Category 5">
-                </datalist>
-            </label>
-            <br/>
-            <label class="set-description-label">
-                <em>Description</em>
-                <input type="text" class="set-description-input" placeholder="Enter some description " required/>
-            </label>
-            <br/>
-        </fieldset>
-        <input type="reset"/>
-        <button type="submit">Send</button>
-        <input type="button" value="Ok!" class="ok-button">
-        <input type="button" value="Move" class="handler">
-    </form>
-</div>
-
 </body>
 </html>

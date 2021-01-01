@@ -34,7 +34,6 @@ const renderAllTasks = arr => {
 const removeAllTasks = () => {
     while (tabContent.firstChild) {
         tabContent.removeChild(tabContent.firstChild);
-        console.log('i vemove 1 element');
     }
 };
 

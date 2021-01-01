@@ -11,5 +11,5 @@ document.querySelector('#test').onkeypress = e => {
 
 }
 const test = document.querySelector('#test');
-console.log(test.classList);
-console.log(test.style);
+test.style.left = '0';
+

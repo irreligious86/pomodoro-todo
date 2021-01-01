@@ -1,0 +1,60 @@
+
+.block-modal-test > * {
+     box-sizing: border-box;
+ }
+
+.block-modal-test {
+    width: 250px;
+    height: 340px;
+    border: 1px solid black;
+    /*padding: 10px;*/
+    margin: 100px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-slider {
+    width: 500px;
+    height: 340px;
+    background: bisque;
+    margin-left: 0;
+    transition: all ease 1s;
+}
+
+.read-rules, .read-rules-back {
+    background: rgba(50, 50, 50, .1);
+    font-synthesis: weight;
+    font-style: oblique;
+    padding: 10px;
+}
+
+.left-50 {
+    position:relative;
+    width: 50%;
+    float: left;
+    min-height: 50px;
+    background: rgba(155, 176, 234, .3);
+}
+
+.right-50 {
+    position: relative;
+    width: 50%;
+    float: left;
+    min-height: 50px;
+    max-height: 340px;
+    overflow-y: scroll;
+    background: lightgreen;
+}
+
+.left-50>p , .right-50>p {
+    margin: 8px 0;
+    padding: 5px 10px;
+    text-align: justify;
+}
+
+.read-rules-back {
+    position: static;
+    bottom: 0;
+    vertical-align:bottom;
+    display:inline-block;
+}

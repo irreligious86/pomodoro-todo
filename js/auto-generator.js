@@ -65,10 +65,8 @@ let autogenTasks = n => {
         f.setImportance(Math.ceil(Math.random() * 10));
         f.setDeadline(randomDate());
         f.setCategory(randomCat());
-        // f.setId(randomId(8));
-        console.log(t);
+        f.setId(randomId(8));
     });
-    console.log('i am autogenTasks, i made ' + n + ' tasks');
     return currentArray;
 };
 

@@ -137,12 +137,15 @@ ul.header-list {
     width: 250px;
   }
 
-.btn-add-task, .btn-sort-task {
+.btn-add-task, .btn-sort-task, .btn-filter-task {
   /*border: 1px solid #078d39;*/
   margin: 7px;
   padding: 5px 25px;
   background: rgb(236, 206, 55);
   box-shadow:  0 0 3px 3px rgb(140, 112, 239);
+}
+.btn-filter-task {
+
 }
 
 .btn-add-task {

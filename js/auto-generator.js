@@ -8,9 +8,6 @@ const handgenTasks = () => {
     let task27451 = currentArray.addTask("rtyjryjuryuj");
     task12345.setDescription("This is description for my task called TASK1");
     task27451.setDescription("qqqqqwwweee");
-    console.log(task12345);
-    console.log(task27451);
-    console.log('i am handgenTasks');
     return currentArray;
 };
 
@@ -53,15 +50,17 @@ let randomNum = (n) => {
 let randomDate = () => {
     let day = (Math.ceil(Math.random() * 31));
     let month = (Math.ceil(Math.random() * 12));
-    let year = 2020 + (Math.ceil(Math.random() * 3));
+    let year = 2020 + (Math.ceil(Math.random() * 2));
     let autodate = `${year}/${month}/${day}`;
-    return autodate;
+    let result = new Date(autodate).getTime();
+    return result;
 }
 
 let autogenTasks = n => {
     Array(n).fill().forEach(() => {
         let t = randomTitle(8);
         let f = currentArray.addTask(t);
+        f.setCreateDate(new Date().getTime());
         f.setImportance(Math.ceil(Math.random() * 10));
         f.setDeadline(randomDate());
         f.setCategory(randomCat());

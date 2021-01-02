@@ -35,7 +35,7 @@ class Tasklist {
     }
 
     sortByDeadLine() {
-        return this.list.sort((a, b) => b.deadline - a.deadline);
+        return this.list.sort((a, b) => a.deadline - b.deadline);
     }
 
     sortByCategory() {
@@ -84,7 +84,7 @@ class Tasklist {
     filterByCreateDate(createDate) {
         return this.list.filter(item => item.createDate === createDate);
     }
-    filterByID(id) {
+    filterById(id) {
         return this.list.filter(item => item.id === id);
     }
     filterByCategory(category) {
@@ -107,7 +107,8 @@ class Task {
         this.id = null;
         this.category = "";
         this.importance = null;
-        this.createDate = (new Date()).toLocaleString();
+        // this.createDate = (new Date()).toLocaleString();
+        this.createDate = null;
         this.deadline = null;
         this.description = '';
     }
@@ -130,5 +131,8 @@ class Task {
         this.category = value;
     }
     setOwned(title) {
+    }
+    setCreateDate(value) {
+        this.createDate = value;
     }
 }

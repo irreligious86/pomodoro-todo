@@ -13,7 +13,7 @@ const taskTemplate = qs('.task-template').content.querySelector('.task');
 const $elm1 = qs('.elm');
 const $child1 = qs('.child', tabContent);
 
-const renderAllTasks = arr => {
+const renderAllTasks = (arr) => {
     (arr.list).forEach((item, i, arr) => {
         const singleTask = taskTemplate.cloneNode(true);
         singleTask.querySelector('.task-field-title').innerText = item.title;
@@ -99,10 +99,7 @@ const sortTaskByValue = () => {
     }
 };
 
-const modalSortWidow = () => {
-    
-
-
+const openSortModal = () => {
 
 };
 
@@ -167,9 +164,35 @@ const filterTaskByValue = () => {
     }
 };
 
-const todayTasks = () => {
+autogenTasks(3000);
 
+const todayTasks = () => {
+    const isSameDate = (a, b) => Math.abs(new Date(a).getTime() - new Date(b).getTime()) < (1000 * 3600 * 24) && new Date(a).getDay() === new Date(b).getDay();
+    const deadlineIsNow = item => isSameDate(item.deadline, new Date());
+    const filteredTasks = currentArray.list.filter(item => deadlineIsNow(item));
+    console.log(filteredTasks);
+    const tabToday = qs('.tab-today>.tab-content');
+    filteredTasks.forEach( item => {
+        const singleTask = taskTemplate.cloneNode(true);
+        singleTask.querySelector('.task-field-title').innerText = item.title;
+        singleTask.querySelector('.task-field-create-date').innerText = new Date(item.createDate).toDateString();
+        singleTask.querySelector('.task-field-importance').innerText = item.importance;
+        singleTask.querySelector('.task-field-deadline').innerText = new Date(item.deadline).toDateString();
+        singleTask.querySelector('.task-field-category').innerText = item.category;
+        singleTask.querySelector('.task-field-description').innerText = item.description;
+        tabToday.appendChild(singleTask);
+    });
 };
+todayTasks();
+
+
+
+const isEndOfWeek = date => date.getDay() === 6;
+
+console.log(isEndOfWeek(new Date(1609617090759)));
+
+console.log((new Date(1968, 11, 2)).getDay() === 6);
+
 
 const tomorrowTasks = () => {
 
@@ -192,12 +215,11 @@ const doneTasks = () => {
 };
 
 
-
 tabAdditional.prepend(handTaskHandler);
 tabAdditional.prepend(autoTaskHandler);
-autogenTasks(300);
+
 removeAllTasks();
-renderAllTasks(currentArray);
+renderAllTasks(currentArray, tabContent);
 
 handTaskHandler.addEventListener('click', () => {
     removeAllTasks();
@@ -207,9 +229,9 @@ handTaskHandler.addEventListener('click', () => {
 autoTaskHandler.addEventListener('click', () => {
     removeAllTasks();
     autogenTasks(3);
-    renderAllTasks(currentArray);
+    renderAllTasks(currentArray, tabContent);
 });
 
-sortTaskBtn.addEventListener('click', modalSortWidow);
+sortTaskBtn.addEventListener('click', openSortModal);
 sortTaskBtn.addEventListener('click', sortTaskByValue);
 filterTaskBtn.addEventListener('click', filterTaskByValue);

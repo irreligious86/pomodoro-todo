@@ -6,9 +6,7 @@ const qsa = (selector, baseNode = document) => baseNode.querySelectorAll(selecto
 const tabContent = qs('.tab-forthcoming>.tab-content'); // create place for task
 const tabAdditional = qs('.tab-forthcoming>.tab-additional');
 
-
 const navbar = qs('.navbar');
-
 
 const sortTaskBtn = qs('.btn-sort-task');
 const filterTaskBtn = qs('.btn-filter-task');
@@ -168,12 +166,14 @@ const filterTaskByValue = () => {
 
 const openFilterModal = () => {};
 
-autogenTasks(500);
+autogenTasks(1000);
 
 const todayTasks = () => {
     const deadlineIsNow = item => isSameDate(item.deadline, new Date());
     const filteredTasks = currentArray.list.filter(item => deadlineIsNow(item));
-    let place = qs('.tab-today>.tab-content');
+    console.log(`today ${filteredTasks.length} tasks`);
+    const scorePanel = qs('.tab-today>.score-panel');
+    const place = qs('.tab-today>.tab-content');
     filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
 todayTasks();
@@ -185,7 +185,8 @@ const tomorrowTasks = () => {
     const tomorrow = today;
     const deadlineIsTomorrow = item => isSameDate(item.deadline, tomorrow);
     const filteredTasks = currentArray.list.filter(item => deadlineIsTomorrow(item));
-    let place = qs('.tab-tomorrow>.tab-content');
+    console.log(`tomorrow ${filteredTasks.length} tasks`);
+    const place = qs('.tab-tomorrow>.tab-content');
     filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
 tomorrowTasks();
@@ -193,7 +194,8 @@ tomorrowTasks();
 const onWeekTasks = () => {
     const isSameWeek = a => (a <= endCurrentWeek()) && (a > todayStartDay());
     const filteredTasks = currentArray.list.filter(item => isSameWeek(item.deadline));
-    let place = qs('.tab-week>.tab-content');
+    console.log(`on week ${filteredTasks.length} tasks`);
+    const place = qs('.tab-week>.tab-content');
     filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
 onWeekTasks();
@@ -201,7 +203,8 @@ onWeekTasks();
 const onMonthTasks = () => {
     const isSameMonth = a => (a <= startNextMonth()) && (a > todayStartDay());
     const filteredTasks = currentArray.list.filter(item => isSameMonth(item.deadline));
-    let place = qs('.tab-month>.tab-content');
+    console.log(`on month ${filteredTasks.length} tasks`);
+    const place = qs('.tab-month>.tab-content');
     filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
 onMonthTasks();
@@ -209,6 +212,7 @@ onMonthTasks();
 const forthcomingTasks = () => {
     const isForthcoming = a => a > todayStartDay();
     const filteredTasks = currentArray.list.filter(item => isForthcoming(item.deadline));
+    console.log(`in forthcoming ${filteredTasks.length} tasks`);
     let place = qs('.tab-forthcoming>.tab-content');
     filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
@@ -217,7 +221,8 @@ forthcomingTasks();
 const doneTasks = () => {
     const isDone = a => a < todayStartDay();
     const filteredTasks = currentArray.list.filter(item => isDone(item.deadline));
-    let place = qs('.tab-done>.tab-content');
+    console.log(`done ${filteredTasks.length} tasks`);
+    const place = qs('.tab-done>.tab-content');
     filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
 doneTasks();

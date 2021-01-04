@@ -48,11 +48,12 @@ let randomNum = (n) => {
 }
 
 let randomDate = () => {
-    let day = (Math.ceil(Math.random() * 31));
-    let month = (Math.ceil(Math.random() * 12));
-    let year = 2020 + (Math.ceil(Math.random() * 2));
-    let autodate = `${year}/${month}/${day}`;
-    let result = new Date(autodate).getTime();
+    const day = (Math.ceil(Math.random() * 31));
+    const month = (Math.ceil(Math.random() * 12));
+    // const year = 2020 + (Math.ceil(Math.random() * 3) );
+    const year = new Date().getFullYear();
+    const autodate = `${year}/${month}/${day}`;
+    const result = new Date(autodate).getTime();
     return result;
 }
 

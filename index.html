@@ -14,6 +14,7 @@
     <!--    <script src="./js/jq-script.js" defer></script>-->
 
     <script src="./js/serialize.js" defer></script>
+    <script src="./js/datelib.js" defer></script>
     <script src="./js/tabs.js" defer></script>
     <script src="./js/modal.js" defer></script>
     <script src="./js/slider.js" defer></script>
@@ -74,38 +75,14 @@
     </div>
     <div class="content">
         <div class="tab tab-today" data="1">
-
             <div class="tab-header">
-                <h1>Task Title ID</h1>
+                <h1>Сегодня </h1>
             </div>
             <div class="tab-content">
 
             </div>
             <div class="tab-additional">
-                <h3>Lorem Ipsum</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-                    laudantium ut eius adipisci qui asperiores perspiciatis iusto
-                    natus, mollitia necessitatibus.
-                </p>
-                <p>
-                    Ipsa, reiciendis. Architecto ea obcaecati eius! Necessitatibus
-                    natus illum inventore consequatur! Nostrum debitis, quos delectus
-                    incidunt vel optio quaerat ipsam.
-                </p>
-                <p>
-                    Impedit cupiditate vitae aspernatur, ipsa voluptates eaque ea
-                    repellendus aliquid distinctio ex neque, ratione ad ipsum modi
-                    provident illo. Placeat.
-                </p>
-                <p>location.reload();</p>
-                <p>isNaN();</p>
-                <p>parseInt();</p>
-                <p>innerHTML = '';</p>
-                <p>innerText = '';</p>
-                <p>outerHTML = '';</p>
-                <p>insertAdjacentHTML(position, text);</p>
-                <p></p>
+                <h4>Сегодня необходимо завершить:</h4>
             </div>
             <div class="tab-footer">
                 <p>Lorem ipsum dolor sit.</p>
@@ -113,18 +90,12 @@
         </div>
         <div class="tab tab-tomorrow" data="2">
             <div class="tab-header">
-                <h1>Tab Header</h1>
+                <h1>Завтра</h1>
             </div>
             <div class="tab-content">
-                <h4>Some tab header H4</h4>
-                <em>Some text</em>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, sed voluptas. Eos, facere fugiat
-                    inventore magnam molestiae sed? Beatae, deleniti officia. Enim facere quis suscipit.</p>
             </div>
             <div class="tab-additional">
-                <em>
-                    Some additional text or elements
-                </em>
+                <h4>Задачи на завтра:</h4>
             </div>
             <div class="tab-footer">
                 <h5>
@@ -134,18 +105,12 @@
         </div>
         <div class="tab tab-week" data="3">
             <div class="tab-header">
-                <h1>Tab Header</h1>
+                <h1>Неделя</h1>
             </div>
             <div class="tab-content">
-                <h4>Some tab header H4</h4>
-                <em>Some text</em>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, sed voluptas. Eos, facere fugiat
-                    inventore magnam molestiae sed? Beatae, deleniti officia. Enim facere quis suscipit.</p>
             </div>
             <div class="tab-additional">
-                <em>
-                    Some additional text or elements
-                </em>
+                <h4>Задачи на текущую неделю:</h4>
             </div>
             <div class="tab-footer">
                 <h5>
@@ -155,18 +120,12 @@
         </div>
         <div class="tab tab-month" data="4">
             <div class="tab-header">
-                <h1>Tab Header</h1>
+                <h1>Месяц</h1>
             </div>
             <div class="tab-content">
-                <h4>Some tab header H4</h4>
-                <em>Some text</em>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, sed voluptas. Eos, facere fugiat
-                    inventore magnam molestiae sed? Beatae, deleniti officia. Enim facere quis suscipit.</p>
             </div>
             <div class="tab-additional">
-                <em>
-                    Some additional text or elements
-                </em>
+                <h4>Задачи на текущий месяц:</h4>
             </div>
             <div class="tab-footer">
                 <h5>
@@ -176,13 +135,9 @@
         </div>
         <div class="tab tab-forthcoming" data="5">
             <div class="tab-header">
-                <h1>Все предстоящие</h1>
+                <h1>Предстоящие</h1>
             </div>
             <div class="tab-content">
-                <h4>Some tab header H4</h4>
-                <em>Some text</em>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, sed voluptas. Eos, facere fugiat
-                    inventore magnam molestiae sed? Beatae, deleniti officia. Enim facere quis suscipit.</p>
             </div>
             <div class="tab-additional">
                 <em>
@@ -197,18 +152,12 @@
         </div>
         <div class="tab tab-done" data="6">
             <div class="tab-header">
-                <h1>Tab Header</h1>
+                <h1>Неактуальные</h1>
             </div>
             <div class="tab-content">
-                <h4>Some tab header H4</h4>
-                <em>Some text</em>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, sed voluptas. Eos, facere fugiat
-                    inventore magnam molestiae sed? Beatae, deleniti officia. Enim facere quis suscipit.</p>
             </div>
             <div class="tab-additional">
-                <em>
-                    Some additional text or elements
-                </em>
+                <h4>Выполненные или те у которых истек срок выполнения:</h4>
             </div>
             <div class="tab-footer">
                 <h5>
@@ -438,6 +387,14 @@
                 <em>
                     Some additional text or elements
                 </em>
+
+                <p>location.reload();</p>
+                <p>isNaN();</p>
+                <p>parseInt();</p>
+                <p>innerHTML = '';</p>
+                <p>innerText = '';</p>
+                <p>outerHTML = '';</p>
+                <p>insertAdjacentHTML(position, text);</p>
             </div>
             <div class="tab-footer">
                 <h5>

@@ -6,6 +6,10 @@ const qsa = (selector, baseNode = document) => baseNode.querySelectorAll(selecto
 const tabContent = qs('.tab-forthcoming>.tab-content'); // create place for task
 const tabAdditional = qs('.tab-forthcoming>.tab-additional');
 
+
+const navbar = qs('.navbar');
+
+
 const sortTaskBtn = qs('.btn-sort-task');
 const filterTaskBtn = qs('.btn-filter-task');
 const taskTemplate = qs('.task-template').content.querySelector('.task');
@@ -13,20 +17,20 @@ const taskTemplate = qs('.task-template').content.querySelector('.task');
 const $elm1 = qs('.elm');
 const $child1 = qs('.child', tabContent);
 
-const renderAllTasks = (arr) => {
-    (arr.list).forEach((item, i, arr) => {
-        const singleTask = taskTemplate.cloneNode(true);
-        singleTask.querySelector('.task-field-title').innerText = item.title;
-        singleTask.querySelector('.task-field-create-date').innerText = new Date(item.createDate).toDateString();
-        singleTask.querySelector('.task-field-importance').innerText = item.importance;
-        singleTask.querySelector('.task-field-deadline').innerText = new Date(item.deadline).toDateString();
-        singleTask.querySelector('.task-field-category').innerText = item.category;
-        singleTask.querySelector('.task-field-description').innerText = item.description;
-        tabContent.appendChild(singleTask);
-    });
-};
+const buildTaskAccordingToTemplate = (item, place) => {
+    const singleTask = taskTemplate.cloneNode(true);
+    singleTask.querySelector('.task-field-title').innerText = item.title;
+    singleTask.querySelector('.task-field-create-date').innerText = new Date(item.createDate).toDateString();
+    singleTask.querySelector('.task-field-importance').innerText = item.importance;
+    singleTask.querySelector('.task-field-deadline').innerText = new Date(item.deadline).toDateString();
+    singleTask.querySelector('.task-field-category').innerText = item.category;
+    singleTask.querySelector('.task-field-description').innerText = item.description;
+    place.prepend(singleTask);
+}
 
-// const renderSomeTasks = (arr, method) => arr.forEach( method );
+const renderAllTasks = (arr) => (arr.list).forEach((item) => buildTaskAccordingToTemplate(item, tabContent));
+
+// const renderTasksByMethod = (arr, method) => arr.forEach( method );
 
 const removeAllTasks = () => {
     while (tabContent.firstChild) {
@@ -99,9 +103,7 @@ const sortTaskByValue = () => {
     }
 };
 
-const openSortModal = () => {
-
-};
+const openSortModal = () => {};
 
 const filterTaskByValue = () => {
     let taskFilterArgument = +prompt('Enter number 1-7:', '1');
@@ -164,59 +166,65 @@ const filterTaskByValue = () => {
     }
 };
 
-autogenTasks(3000);
+const openFilterModal = () => {};
+
+autogenTasks(500);
 
 const todayTasks = () => {
-    const isSameDate = (a, b) => Math.abs(new Date(a).getTime() - new Date(b).getTime()) < (1000 * 3600 * 24) && new Date(a).getDay() === new Date(b).getDay();
     const deadlineIsNow = item => isSameDate(item.deadline, new Date());
     const filteredTasks = currentArray.list.filter(item => deadlineIsNow(item));
-    console.log(filteredTasks);
-    const tabToday = qs('.tab-today>.tab-content');
-    filteredTasks.forEach( item => {
-        const singleTask = taskTemplate.cloneNode(true);
-        singleTask.querySelector('.task-field-title').innerText = item.title;
-        singleTask.querySelector('.task-field-create-date').innerText = new Date(item.createDate).toDateString();
-        singleTask.querySelector('.task-field-importance').innerText = item.importance;
-        singleTask.querySelector('.task-field-deadline').innerText = new Date(item.deadline).toDateString();
-        singleTask.querySelector('.task-field-category').innerText = item.category;
-        singleTask.querySelector('.task-field-description').innerText = item.description;
-        tabToday.appendChild(singleTask);
-    });
+    let place = qs('.tab-today>.tab-content');
+    filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
 todayTasks();
 
-
-
-const isEndOfWeek = date => date.getDay() === 6;
-
-console.log(isEndOfWeek(new Date(1609617090759)));
-
-console.log((new Date(1968, 11, 2)).getDay() === 6);
-
-
 const tomorrowTasks = () => {
-
+    let today = new Date();
+    let date = today.getDate();
+    today.setDate(++date);
+    const tomorrow = today;
+    const deadlineIsTomorrow = item => isSameDate(item.deadline, tomorrow);
+    const filteredTasks = currentArray.list.filter(item => deadlineIsTomorrow(item));
+    let place = qs('.tab-tomorrow>.tab-content');
+    filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
+tomorrowTasks();
 
-const currentWeekTasks = () => {
-
+const onWeekTasks = () => {
+    const isSameWeek = a => (a <= endCurrentWeek()) && (a > todayStartDay());
+    const filteredTasks = currentArray.list.filter(item => isSameWeek(item.deadline));
+    let place = qs('.tab-week>.tab-content');
+    filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
+onWeekTasks();
 
-const currentMonthTasks = () => {
-
+const onMonthTasks = () => {
+    const isSameMonth = a => (a <= startNextMonth()) && (a > todayStartDay());
+    const filteredTasks = currentArray.list.filter(item => isSameMonth(item.deadline));
+    let place = qs('.tab-month>.tab-content');
+    filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
+onMonthTasks();
 
 const forthcomingTasks = () => {
-
+    const isForthcoming = a => a > todayStartDay();
+    const filteredTasks = currentArray.list.filter(item => isForthcoming(item.deadline));
+    let place = qs('.tab-forthcoming>.tab-content');
+    filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
+forthcomingTasks();
 
 const doneTasks = () => {
-
+    const isDone = a => a < todayStartDay();
+    const filteredTasks = currentArray.list.filter(item => isDone(item.deadline));
+    let place = qs('.tab-done>.tab-content');
+    filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
+doneTasks();
 
 
-tabAdditional.prepend(handTaskHandler);
-tabAdditional.prepend(autoTaskHandler);
+navbar.append(handTaskHandler);
+navbar.append(autoTaskHandler);
 
 removeAllTasks();
 renderAllTasks(currentArray, tabContent);
@@ -228,7 +236,7 @@ handTaskHandler.addEventListener('click', () => {
 });
 autoTaskHandler.addEventListener('click', () => {
     removeAllTasks();
-    autogenTasks(3);
+    autogenTasks(100);
     renderAllTasks(currentArray, tabContent);
 });
 

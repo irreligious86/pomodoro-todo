@@ -101,7 +101,8 @@ const sortTaskByValue = () => {
     }
 };
 
-const openSortModal = () => {};
+const openSortModal = () => {
+};
 
 const filterTaskByValue = () => {
     let taskFilterArgument = +prompt('Enter number 1-7:', '1');
@@ -164,9 +165,9 @@ const filterTaskByValue = () => {
     }
 };
 
-const openFilterModal = () => {};
+const openFilterModal = () => {
+};
 
-autogenTasks(1000);
 
 const todayTasks = () => {
     const deadlineIsNow = item => isSameDate(item.deadline, new Date());
@@ -176,7 +177,6 @@ const todayTasks = () => {
     const place = qs('.tab-today>.tab-content');
     filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
-todayTasks();
 
 const tomorrowTasks = () => {
     let today = new Date();
@@ -189,7 +189,6 @@ const tomorrowTasks = () => {
     const place = qs('.tab-tomorrow>.tab-content');
     filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
-tomorrowTasks();
 
 const onWeekTasks = () => {
     const isSameWeek = a => (a <= endCurrentWeek()) && (a > todayStartDay());
@@ -198,7 +197,6 @@ const onWeekTasks = () => {
     const place = qs('.tab-week>.tab-content');
     filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
-onWeekTasks();
 
 const onMonthTasks = () => {
     const isSameMonth = a => (a <= startNextMonth()) && (a > todayStartDay());
@@ -207,7 +205,6 @@ const onMonthTasks = () => {
     const place = qs('.tab-month>.tab-content');
     filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
-onMonthTasks();
 
 const forthcomingTasks = () => {
     const isForthcoming = a => a > todayStartDay();
@@ -216,20 +213,22 @@ const forthcomingTasks = () => {
     let place = qs('.tab-forthcoming>.tab-content');
     filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
-forthcomingTasks();
 
-const doneTasks = () => {
-    const isDone = a => a < todayStartDay();
-    const filteredTasks = currentArray.list.filter(item => isDone(item.deadline));
-    console.log(`done ${filteredTasks.length} tasks`);
-    const place = qs('.tab-done>.tab-content');
+const failedTasks = () => {
+    const isFailed = a => a < todayStartDay();
+    const filteredTasks = currentArray.list.filter(item => isFailed(item.deadline));
+    console.log(`failed ${filteredTasks.length} tasks`);
+    const place = qs('.tab-failed>.tab-content');
     filteredTasks.forEach(item => buildTaskAccordingToTemplate(item, place));
 };
-doneTasks();
+
 
 
 navbar.append(handTaskHandler);
 navbar.append(autoTaskHandler);
+
+autogenTasks(1000);
+
 
 removeAllTasks();
 renderAllTasks(currentArray, tabContent);
@@ -248,3 +247,9 @@ autoTaskHandler.addEventListener('click', () => {
 sortTaskBtn.addEventListener('click', openSortModal);
 sortTaskBtn.addEventListener('click', sortTaskByValue);
 filterTaskBtn.addEventListener('click', filterTaskByValue);
+
+
+//     пишем обработчик левой колонки - навигационной панели .
+//     по клику на элемент запустить соответствующий обработчик.
+//     перебираем весь массив и на каждый элемент задаем обработчик.
+//     эксплуатируем модуль табы

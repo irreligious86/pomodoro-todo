@@ -33,4 +33,3 @@ const endCurrentMonth = () => startNextMonth() - 1000;
 const isSameDate = (a, b) => Math.abs(new Date(a).getTime() - new Date(b).getTime()) < (1000 * 3600 * 24) && new Date(a).getDay() === new Date(b).getDay();
 
 const isEndOfWeek = date => date.getDay() === 6;
-

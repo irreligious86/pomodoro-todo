@@ -43,16 +43,19 @@ const acceptPortal = () => {
 const fullAccept = () => {
     acceptPortal();
     closePortal();
-    removeAllTasks();
+    removeAllTasks(tabContent);
     renderAllTasks(currentArray);
 };
 
 const escapeTaskSetter = evt => {
     if (evt.keyCode === 27 && !overlay.classList.contains('hidden')) {
         overlayForm.reset();
-        overlay.remove();
-        blur.classList.add('hidden');
         document.body.style.overflow = '';
+        overlay.classList.toggle('hidden');
+        overlay.remove();
+        blur.classList.remove('blur');
+        blur.classList.add('hidden');
+
     }
 };
 

@@ -72,5 +72,7 @@ const tabSettings = () => {
     })
 
     init();
+    todayTasks();
+    document.querySelectorAll('.tab')[0].style.display = 'grid';
 }
 tabSettings();

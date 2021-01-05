@@ -20,9 +20,9 @@ class Tasklist {
 
     sortByTitle() {
         return this.list.sort((a, b) => {
-            if (a.title > b.title) {
+            if (a.title < b.title) {
                 return 1
-            } else if (a.title < b.title) {
+            } else if (a.title > b.title) {
                 return -1
             } else {
                 return 0

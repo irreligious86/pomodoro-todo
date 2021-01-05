@@ -185,7 +185,8 @@ ul.header-list {
 
 @media screen and (max-width: 778px) {
   .wrapper, header, .navbar, .content, .tab, footer {
-    width: 540px;
+    /*width: 540px;*/
+    width: 100%;
   }
   .tab {
     grid-template-rows: 50px auto auto 50px;
@@ -201,7 +202,25 @@ ul.header-list {
   .tab-content {
     padding: 0;
   }
+  .navbar {
+    height: 530px;
+  }
+  .navbar-list {
+    padding: 0;
+  }
+  .btn-add-task, .btn-sort-task, .btn-filter-task {
+    margin: 0;
+    box-shadow: none;
+    border: 1px solid darkcyan;
+  }
+  ul.navbar-list > li {
+    margin: 0;
+    box-shadow: none;
+    border: 1px solid darkcyan;
+  }
 }
+
+
 
 @media screen and (max-width: 540px) {
   .wrapper, header, .navbar, .content, .tab, footer {

@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="./css/modal.css"/>
     <link rel="stylesheet" href="./css/slider.css"/>
     <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="./css/mediaquery.css"/>
+
     <!--    <script src="./js/jquery-3.5.1.js" defer></script>-->
     <!--    <script src="./js/jq-script.js" defer></script>-->
-
     <script src="./js/serialize.js" defer></script>
     <script src="./js/datelib.js" defer></script>
 <!--    <script src="./js/tabs.js" defer></script>-->
@@ -34,32 +35,34 @@
     <header>
         <ul class="header-list">
             <li>
-                <button>Account</button>
+                <a href="#">Account</a>
             </li>
             <li>
-                <button>LOGO</button>
+                <a href="#">LOGO</a>
             </li>
             <li>
-                <button>Premium</button>
+                <a href="#">Premium</a>
             </li>
             <li>
-                <button>Networks</button>
+                <a href="#">Networks</a>
             </li>
             <li>
-                <button>Rating</button>
+                <a href="#">Rating</a>
             </li>
             <li>
-                <button>Report</button>
+                <a href="#">Report</a>
             </li>
             <li>
-                <button>Pomodoro-timer</button>
+                <a href="#">Pomodoro</a>
             </li>
         </ul>
     </header>
     <div class="navbar">
-        <h4 class="btn-add-task"> Добавить задачу </h4>
-        <h4 class="btn-sort-task"> Сортировать </h4>
-        <h4 class="btn-filter-task"> Фильтр </h4>
+        <div class="btn-x-task">
+            <em class="btn-add-task"> Add </em>
+            <em class="btn-sort-task"> Sort </em>
+            <em class="btn-filter-task"> Filter </em>
+        </div>
         <ul class="navbar-list">
             <li class=" tab-link active" data="1">Сегодня</li>
             <li class=" tab-link " data="2">Завтра</li>
@@ -548,30 +551,6 @@
                     type="button"
                     value="Remove"
             >Remove
-            </button>
-            <button data-button="description"
-                    class="btn-description-task"
-                    type="button"
-                    value="Description"
-            >Description
-            </button>
-            <button data-button="importance"
-                    class="btn-importance-task"
-                    type="button"
-                    value="Importance"
-            >Importance
-            </button>
-            <button data-button="category"
-                    class="btn-category-task"
-                    type="button"
-                    value="Category"
-            >Category
-            </button>
-            <button data-button="save"
-                    class="btn-save-task"
-                    type="button"
-                    value="Save"
-            >Save
             </button>
             <button data-button="done"
                     class="btn-done-task"

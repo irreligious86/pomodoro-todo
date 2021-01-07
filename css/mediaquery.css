@@ -1,0 +1,236 @@
+
+@media screen and  (max-width: 1120px) {
+    .wrapper, header, footer {
+        width: 960px;
+    }
+    .wrapper {
+        grid-column-gap: 2px;
+        grid-row-gap: 2px;
+        grid-template-columns: 245px auto;
+        grid-template-areas:
+      "header header header"
+      "navbar content content"
+      "footer footer footer";
+    }
+    .tab {
+        margin: 0;
+        width: 100%;
+        grid-template-rows: 40px auto 50px;
+        grid-template-columns:500px 205px;
+        grid-template-areas:
+      "tab-header tab-header"
+      "tab-content tab-additional"
+      "tab-footer tab-footer";
+    }
+    .navbar {
+        width: 245px;
+        height: auto;
+    }
+    .content {
+        margin: 0;
+        width: 100%;
+    }
+    ul.navbar-list {
+        margin: 3px;
+    }
+}
+
+@media screen and  (max-width: 990px) {
+    .wrapper, header, footer {
+        width: 768px;
+    }
+    .wrapper {
+        grid-column-gap: 0;
+        grid-row-gap: 0;
+        grid-template-columns: 200px 560px;
+        grid-template-areas:
+      "header header"
+      "navbar content"
+      "footer footer";
+    }
+    .navbar {
+        width: 200px;
+    }
+    .content {
+        width: 560px;
+    }
+    .tab {
+        width: 100%;
+        grid-template-columns: 100%;
+        grid-template-areas:
+      "tab-header"
+      "tab-content"
+      "tab-additional"
+      "tab-footer";
+    }
+    .tab-content {
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    ul.header-list > li > a {
+        padding: 12px 15px;
+    }
+    .btn-x-task > * {
+        padding: 3px 15px;
+    }
+}
+
+@media screen  and (max-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+    .wrapper, header, .navbar, .content, .tab, footer {
+        width: 100%;
+    }
+    .wrapper {
+        padding: 0;
+        margin: 0;
+        grid-column-gap: 0;
+        grid-row-gap: 0;
+        grid-template-columns: 100%;
+        grid-template-areas:
+      "header"
+      "navbar"
+      "content"
+      "footer";
+    }
+    ul.header-list > li > a {
+        padding: 7px 3px;
+    }
+    .tab {
+        grid-template-rows: 30px auto auto 50px;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+      "tab-header"
+      "tab-content"
+      "tab-additional"
+      "tab-footer";
+    }
+    .tab-content {
+        padding: 0;
+    }
+    .tab-content {
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .navbar {
+        height: 100%;
+    }
+    .navbar-list {
+        padding: 0;
+    }
+    .btn-x-task {
+        padding: 10px;
+    }
+    .btn-x-task > * {
+        float: left;
+        margin: 0;
+        box-shadow: none;
+        border: 1px solid #008b8b;
+        padding: 6px calc(7px + 12vw);
+    }
+    ul.navbar-list > li {
+        margin: 0;
+        box-shadow: none;
+        border: 1px solid darkcyan;
+    }
+    ul.navbar-list > li {
+        padding: 8px 6vw;
+        width: calc(107px + 28vw);
+    }
+    .mini-button {
+        display: inline-block;
+        border-width: 0;
+        border-radius: 3px;
+        padding: 5px ;
+        margin: 5px ;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .wrapper, header, .navbar, .content, .tab, footer {
+        width: 100%;
+    }
+    header {
+        height: 100%;
+    }
+    .tab {
+        grid-template-rows: 30px auto auto 50px;
+        grid-template-columns: 1fr;
+        grid-column-gap: 1px;
+        grid-row-gap: 1px;
+    }
+    .tab-header {
+        margin: 1px;
+        padding: 1px;
+        font-size: small;
+    }
+    ul.header-list {
+        display: flow-root;
+        height: 100%;
+        margin: 0;
+    }
+    ul.header-list > li {
+        flex-direction: column;
+        margin: 3px;
+        padding: 6px;
+        width: 80%;
+    }
+    .btn-x-task {
+        display: flow-root;
+        width: 80%;
+    }
+    .btn-x-task > * {
+        width: 66%;
+    }
+    ul.navbar-list > li {
+        padding: 6px;
+        width: 80%;
+    }
+    .task {
+        margin: 6px auto;
+        padding:  3px;
+        min-width: 300px;
+        min-height: 120px;
+        border-top: 3px;
+        grid-template-rows: 1fr 30px  auto;
+        grid-template-columns:auto;
+        grid-template-areas:
+    "task-buttons"
+    "fields"
+    "description";
+    }
+    .task-field {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .task-buttons {
+        display: flex;
+        flex-direction: row;
+        height: 30px;
+    }
+    .task-buttons > button {
+        justify-content: center;
+        margin: 3px;
+        padding: 3px 6px;
+    }
+    .task-field > * {
+        margin: 5px;
+        display: block;
+        width: 150px;
+    }
+    .task-field-description {
+        padding: 5px;
+    }
+    .task-field-description > * {
+        margin: 1px;
+        padding: 2px;
+    }
+    .task-field-value {
+        width: 30px;
+    }
+}
+
+

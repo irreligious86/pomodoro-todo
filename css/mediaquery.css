@@ -231,6 +231,38 @@
     .task-field-value {
         width: 30px;
     }
+    .setup-window-box > form {
+        width: calc(100% - 3px);
+    }
+    .setup-window-box > fieldset {
+        margin: 5px;
+        padding: 3px;
+    }
+    .setup-window-box > label {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px;
+        padding: 5px;
+        margin: 0 5px;
+        font-size: 12px;
+        text-align: right;
+    }
+    .setup-window-box > label > input {
+        padding: 5px;
+        margin: 0 5px;
+        text-align: left;
+        color: #005386;
+    }
+    .setup-window-box > label > * {
+        flex-direction: column;
+    }
+
+
+    .setup-window-box > button {
+        padding: 3px 5px;
+        margin: 3px 3px;
+    }
 }
 
 
